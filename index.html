@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Code Generator</title>
+</head>
+<body>
+    <h2>Unique Code Generator</h2>
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="codeword">Code Word:</label><br>
+    <input type="text" id="codeword" name="codeword"><br><br>
+    <button onclick="generateCode()">Generate Code</button>
+    <p id="uniqueCode">Your unique code will appear here.</p>
+
+    <script>
+        function generateCode() {
+            const username = document.getElementById("username").value;
+            const codeword = document.getElementById("codeword").value;
+            
+            // Simple hash-like function to generate a unique code
+            const uniqueCode = btoa(username + ':' + codeword).substring(0, 12);
+            document.getElementById("uniqueCode").innerText = "Your Unique Code: " + uniqueCode;
+        }
+    </script>
+</body>
+</html>

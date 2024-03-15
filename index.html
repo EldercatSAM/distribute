@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unique Code Generator</title>
+    <title>活动代码生成器</title>
 </head>
 <body>
     <h2>Unique Code Generator</h2>
-    <label for="username">Username:</label><br>
+    <label for="请输入姓名：">Username:</label><br>
     <input type="text" id="username" name="username"><br>
-    <label for="codeword">Code Word:</label><br>
+    <label for="请输入身份证号后六位：">Code Word:</label><br>
     <input type="text" id="codeword" name="codeword"><br><br>
     <button onclick="generateCode()">Generate Code</button>
-    <p id="uniqueCode">Your unique code will appear here.</p>
+    <p id="uniqueCode">您的登录码是：</p>
 
     <script>
         function generateCode() {

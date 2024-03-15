@@ -8,9 +8,9 @@
 <body>
     <h2>Unique Code Generator</h2>
     <label for="请输入姓名：">Username:</label><br>
-    <input type="text" id="username" name="请输入姓名："><br>
+    <input type="text" id="请输入姓名：" name="请输入姓名："><br>
     <label for="请输入身份证号后六位：">Code Word:</label><br>
-    <input type="text" id="codeword" name="请输入身份证号后六位："><br><br>
+    <input type="text" id="请输入身份证号后六位：" name="请输入身份证号后六位："><br><br>
     <button onclick="generateCode()">生成代码</button>
     <p id="uniqueCode">您的登录码是：</p>
 
@@ -21,7 +21,7 @@
             
             // Simple hash-like function to generate a unique code
             const uniqueCode = btoa(username + ':' + codeword).substring(0, 12);
-            document.getElementById("uniqueCode").innerText = "Your Unique Code: " + uniqueCode;
+            document.getElementById("uniqueCode").innerText = "您的登录码是：" + uniqueCode;
         }
     </script>
 </body>

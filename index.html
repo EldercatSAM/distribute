@@ -48,8 +48,12 @@
     
             // If combination is allowed, proceed with generating a unique code
             const combinedString = encodeURIComponent(username + ':' + codeword);
+
             const base64Encoded = btoa(unescape(combinedString)).substring(0, 12);
-            document.getElementById("uniqueCode").innerText = "您的登录码是：" + base64Encoded;
+        
+            // Insert 'DXDY' at the 8th position
+            const modifiedCode = base64Encoded.substring(0, 8) + 'DXDY' + base64Encoded.substring(8);
+            document.getElementById("uniqueCode").innerText = "您的登录码是：" + modifiedCode;
         }
     </script>
 </body>

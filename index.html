@@ -23,13 +23,15 @@
         };
     
         function generateHash(input) {
-            // A simple hashing function. In a real scenario, use a more secure method.
-            return btoa(encodeURIComponent(input));
+            const encodedInput = btoa(encodeURIComponent(input));
+            console.log(`Encoded Input: ${encodedInput}`); // Debugging line
+            return encodedInput;
         }
-    
+        
         function isCombinationAllowed(name, codeword) {
             const combinedInput = name + ':' + codeword;
             const hashOfCombination = generateHash(combinedInput);
+            console.log(`Hash of Combination: ${hashOfCombination}`); // Debugging line
             return !!allowedHashes[hashOfCombination];
         }
     

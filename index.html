@@ -15,12 +15,35 @@
     <p id="uniqueCode">您的登录码是：</p>
 
     <script>
+        // Example of allowed combinations' hashes (pre-computed)
+        const allowedHashes = {
+            'd7b57b387e4993d5db786c9d3b53b81e14d069d13555f71ee9aa0a514a1fbab5': true,
+            'hashOfNameAndCodeword2': true,
+            // Add more pre-computed hashes as needed
+        };
+    
+        function generateHash(input) {
+            // A simple hashing function. In a real scenario, use a more secure method.
+            return btoa(encodeURIComponent(input));
+        }
+    
+        function isCombinationAllowed(name, codeword) {
+            const combinedInput = name + ':' + codeword;
+            const hashOfCombination = generateHash(combinedInput);
+            return !!allowedHashes[hashOfCombination];
+        }
+    
         function generateCode() {
-            const username = encodeURIComponent(document.getElementById("username").value);
-            const codeword = encodeURIComponent(document.getElementById("codeword").value);
-            
-            // Encoding the combined string to handle non-ASCII characters
-            const combinedString = username + ':' + codeword;
+            const username = document.getElementById("username").value;
+            const codeword = document.getElementById("codeword").value;
+    
+            if (!isCombinationAllowed(username, codeword)) {
+                document.getElementById("uniqueCode").innerText = "您不在允许列表内。";
+                return;
+            }
+    
+            // If combination is allowed, proceed with generating a unique code
+            const combinedString = encodeURIComponent(username + ':' + codeword);
             const base64Encoded = btoa(unescape(combinedString)).substring(0, 12);
             document.getElementById("uniqueCode").innerText = "您的登录码是：" + base64Encoded;
         }

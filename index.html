@@ -42,7 +42,13 @@
             const codeword = document.getElementById("codeword").value;
 
             const x = parseInt(codeword.charAt(3), 10); // 4th digit, considering zero-based indexing
-            const tenMinusX = 10 - x;
+
+            let xMinus5 = x - 5;
+
+            // Handle case where x < 5 to ensure xMinus5 is non-negative
+            if (xMinus5 < 0) {
+                xMinus5 += 10; // Wrap around
+            }
 
     
             if (!isCombinationAllowed(username, codeword)) {
@@ -56,7 +62,7 @@
             const base64Encoded = btoa(unescape(combinedString)).substring(0, 12);
         
             // Insert 'DXDY' at the 8th position
-            const modifiedCode = x + base64Encoded.substring(0, 8) + 'DXDY' + base64Encoded.substring(8) + tenMinusX;
+            const modifiedCode = x + base64Encoded.substring(0, 8) + 'S8T9' + base64Encoded.substring(8) + xMinus5;
             document.getElementById("uniqueCode").innerText = "您的登录码是：" + modifiedCode;
         }
     </script>

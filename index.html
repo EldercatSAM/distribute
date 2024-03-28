@@ -1567,7 +1567,7 @@
             const username = document.getElementById("username").value;
             const codeword = document.getElementById("codeword").value;
 
-            const x = parseInt(codeword.charAt(3), 10); // 4th digit, considering zero-based indexing
+            const x = parseInt(codeword.charAt(2), 10); // 4th digit, considering zero-based indexing
 
             let xMinus5 = x - 5;
 
@@ -1585,7 +1585,7 @@
             // If combination is allowed, proceed with generating a unique code
             const combinedString = encodeURIComponent(username + ':' + codeword);
 
-            const base64Encoded = btoa(unescape(combinedString)).substring(0, 12);
+            const base64Encoded = btoa(unescape(combinedString)).substring(0, 16);
         
             // Insert 'DXDY' at the 8th position
             const modifiedCode = x + base64Encoded.substring(0, 8) + 'S8T9' + base64Encoded.substring(8) + xMinus5;

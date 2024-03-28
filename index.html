@@ -1566,7 +1566,7 @@
     
         function generateCode() {
             const username = document.getElementById("username").value;
-            const codeword = document.getElementById("codeword").value;
+            let codeword = document.getElementById("codeword").value;
             if (codeword.slice(-1).toLowerCase() === 'x') {
                 codeword = codeword.slice(0, -1) + 'X';
             }

@@ -1589,7 +1589,7 @@
             // If combination is allowed, proceed with generating a unique code
             const combinedString = encodeURIComponent(username + ':' + codeword);
 
-            const base64Encoded = btoa(unescape(combinedString)).substring(0, 16);
+            const base64Encoded = btoa(unescape(combinedString)).substring(0, 12);
         
             // Insert 'DXDY' at the 8th position
             const modifiedCode = x + base64Encoded.substring(0, 8) + 'S8T9' + base64Encoded.substring(8) + xMinus5;
